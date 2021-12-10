@@ -50,6 +50,8 @@ $ make test
 
 ### AWS
 
+To add more AWS resources first read the [documentation](docs/aws.md) we have about it.
+
 1. Familiarize yourself with the official AWS pricing page for the service as well as the Terraform documentation for the resource you want to add. Note all factors that influence the cost.
 2. Download and familiarize yourself with the pricing data CSV. This can be done by first checking the [index.json](https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json), finding the respective service under the `offers` key and downloading the file at the URL under the `currentVersionUrl` (replace `json` with `csv`).
 3. Find the names of all columns that contain relevant cost factors and check that the `aws/field/field.go` file contains them - add them if this is not the case. The constant name should be a correct Go identifier, while the comment should contain the name as it appears in the CSV file.
@@ -59,6 +61,16 @@ $ make test
 7. Test and make sure that estimating your resource works.
 8. Open a PR with the changes and please try to provide as much information as possible, especially: description of all the cost factors that the PR uses, links to Terraform docs and AWS pricing page, examples of a Terraform file and the resulting estimation.
 
+
+### Google
+
+To add more Google resources first read the [documentation](docs/google.md) we have about it.
+
+
+### AzureRM
+
+To add more AzureRm resources first read the [documentation](docs/azurerm.md) we have about it.
+
 ## Adding a new provider/backend
 
-**Please be aware that, at the moment, Cycloid only supports MySQL as a backend and AWS as cloud provider.** Based on this, please refrain from making contributions that add a new backend or cloud provider as we cannot guarantee they'd be merged and/or supported. To make improvements in this area, please instead open an appropriate issue so that we can discuss it and provide any necessary guidance.
+**Please be aware that, at the moment, Cycloid only supports MySQL as a backend.** Based on this, please refrain from making contributions that add a new backend or cloud provider as we cannot guarantee they'd be merged and/or supported. To make improvements in this area, please instead open an appropriate issue so that we can discuss it and provide any necessary guidance.
