@@ -14,6 +14,8 @@
 
 ## List of supported resources and attributes
 
+* [`aws_instance`](#aws_instance)
+
 ### `aws_instance`
 
 #### Cost factors
