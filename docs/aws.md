@@ -14,24 +14,27 @@
 
 ## List of supported resources and attributes
 
-| Resource | Cost factors | Additional notes |
-|- | - | - |
-|
-`aws_instance`
-|
+### `aws_instance`
+
+#### Cost factors
+
 * Location
 * Instance type
 * Tenancy - only "shared" and "dedicated"
 * Operating system - currently only Linux supported, every instance is treated as a Linux instance
 * Pre-installed S/W - currently not supported, the value of "NA" is used instead
-* Storage - see more in the <code>aws_ebs_volume</code> entry
-|
+* Storage - see more in the `aws_ebs_volume` entry
+
+#### Additional notes
+
 * Only "On Demand" instances are supported.
 * Only compute and storage costs are estimated. GPU, monitoring, etc. are not taken into account.
 * Uptime of 730 hours in a month (non-stop) is assumed.
-|
-| `aws_db_instance`
-|
+
+### `aws_db_instance`
+
+#### Cost factors
+
 * Location
 * Instance class
 * Database engine and edition
@@ -40,30 +43,39 @@
 * Allocated storage
 * Storage type - "Magnetic" (standard), "Provisioned IOPS" (io1), "General Purpose" (gp2)
 * Provisioned IOPS - only for this type of storage; 100 by default
-|
+
+#### Additional notes
+
 * Only "On Demand" database instances are supported.
 * Uptime of 730 hours in a month (non-stop) is assumed.
-|
-| `aws_ebs_volume`
-|
+
+### `aws_ebs_volume`
+
+#### Cost factors
+
 * Location
 * Volume type - "gp2" by default
 * Volume size - 8GB by default
 * Provisioned IOPS - only for "io1" and "io2" volume types; 100 by default
-|
-|
-| `aws_lb` / `aws_albi`
-|
+
+
+### `aws_lb` / `aws_albi`
+
+#### Cost factors
+
 * Location
 * Load balancer type - "application" by default
-|
-* Cost of Load Balancer Capacity Units (LCU's) per hour is not estimated.
-|
-| `aws_elb`
-|
-* Location
-|
-* Data transfer usage cost is not estimated.
-|
 
-More coming soon!
+#### Additional notes
+
+* Cost of Load Balancer Capacity Units (LCU's) per hour is not estimated.
+
+### `aws_elb`
+
+#### Cost factors
+
+* Location
+
+#### Additional notes
+
+* Data transfer usage cost is not estimated.
