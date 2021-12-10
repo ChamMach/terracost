@@ -15,6 +15,10 @@
 ## List of supported resources and attributes
 
 * [`aws_instance`](#aws_instance)
+* [`aws_db_instance`](#aws_db_instance)
+* [`aws_ebs_volume`](#aws_ebs_volume)
+* [`aws_lb/aws_alb`](#aws_lb)
+* [`aws_elb`](#aws_elb)
 
 ### `aws_instance`
 
@@ -61,7 +65,7 @@
 * Provisioned IOPS - only for "io1" and "io2" volume types; 100 by default
 
 
-### `aws_lb` / `aws_albi`
+### `aws_lb` / `aws_alb`
 
 #### Cost factors
 
