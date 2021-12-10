@@ -17,7 +17,7 @@
 * [`aws_instance`](#aws_instance)
 * [`aws_db_instance`](#aws_db_instance)
 * [`aws_ebs_volume`](#aws_ebs_volume)
-* [`aws_lb/aws_alb`](#aws_lb)
+* [`aws_lb/aws_alb`](#aws_lb/aws_alb)
 * [`aws_elb`](#aws_elb)
 
 ### `aws_instance`
