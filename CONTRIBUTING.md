@@ -48,24 +48,17 @@ $ make test
 
 ## Adding a new resource
 
+### General
+
+* On the `{provider}/terraform` resources info
+
 ### AWS
 
 To add more AWS resources first read the [documentation](docs/aws.md) we have about it.
 
-1. Familiarize yourself with the official AWS pricing page for the service as well as the Terraform documentation for the resource you want to add. Note all factors that influence the cost.
-2. Download and familiarize yourself with the pricing data CSV. This can be done by first checking the [index.json](https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/index.json), finding the respective service under the `offers` key and downloading the file at the URL under the `currentVersionUrl` (replace `json` with `csv`).
-3. Find the names of all columns that contain relevant cost factors and check that the `aws/field/field.go` file contains them - add them if this is not the case. The constant name should be a correct Go identifier, while the comment should contain the name as it appears in the CSV file.
-4. Run `go generate ./...` to regenerate the field list.
-5. Create a new file with the name of the Terraform resource (without the `aws` prefix), e.g. for `aws_db_instance` it would be `db_instance.go`. It should include two new structs: `Resource` (that is an intermediate struct containing only the relevant cost factors) and `resourceValues` (that directly represents the values from the Terraform resource.) Additionally, the `Resource` struct must implement the `Components` method that returns `[]query.Component`. See the other existing resources for inspiration.
-6. Write tests for your resource. As before, check the other existing test files for inspiration.
-7. Test and make sure that estimating your resource works.
-8. Open a PR with the changes and please try to provide as much information as possible, especially: description of all the cost factors that the PR uses, links to Terraform docs and AWS pricing page, examples of a Terraform file and the resulting estimation.
-
-
 ### Google
 
 To add more Google resources first read the [documentation](docs/google.md) we have about it.
-
 
 ### AzureRM
 
