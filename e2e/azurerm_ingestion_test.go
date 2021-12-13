@@ -3,7 +3,6 @@ package e2e
 import (
 	"context"
 	"database/sql"
-	"fmt"
 	"testing"
 
 	costestimation "github.com/cycloidio/terracost"
@@ -41,7 +40,6 @@ func TestAzureRMIngestion(t *testing.T) {
 
 	allProds, err := backend.Products().Filter(ctx, &product.Filter{Provider: util.StringPtr(azurerm.ProviderName), Service: util.StringPtr(azurerm.VirtualMachines.String())})
 	require.NoError(t, err)
-	fmt.Println(len(allProds))
 	assert.Len(t, allProds, 838)
 
 	for _, prod := range allProds {
